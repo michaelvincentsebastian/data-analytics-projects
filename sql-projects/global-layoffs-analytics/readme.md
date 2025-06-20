@@ -64,10 +64,35 @@ This dataset was introduced as part of my Data Analytics Bootcamp curriculum and
 
 ---
 
-## 📂 SQL Scripts & Documentation
+---
 
-Explore the full SQL logic and analysis process in my GitHub repository:  
-👉 https://github.com/michaelvincentsebastian/data-analytics-projects
+## 📉 Phase 2: Exploratory Data Analysis — *Trend & Time Analysis*
+
+In this stage, I focused on analyzing layoff patterns over time:
+
+### 🕒 Time-Based Queries:
+
+1. **Total Layoffs by Year**  
+   → Shows macro-level trends and which year saw the highest layoffs.
+
+2. **Total Layoffs by Month-Year**  
+   → Displays monthly peaks and fluctuations for closer monitoring.
+
+3. **Cumulative Monthly Layoffs**  
+   → Tracks the progression of total layoffs over time.
+
+4. **3-Month Rolling Average & Sum**  
+   → Highlights short-term patterns while smoothing seasonal noise — helping identify current momentum (whether layoffs are rising or slowing down).
+
+### 📊 Tools Used:
+- MySQL (Data Query & Transformation)
+- Power BI (Data Visualization)
+- Git & GitHub (Version Control & Documentation)
+- VS Code (SQL Editing Environment)
+
+📸 Below is the dashboard visualization for this phase:
+
+![Trends & Time Analysis Dashboard](./trend-time-analysis.jpg)
 
 ---
 
