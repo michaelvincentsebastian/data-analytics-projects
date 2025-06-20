@@ -64,8 +64,6 @@ This dataset was introduced as part of my Data Analytics Bootcamp curriculum and
 
 ---
 
----
-
 ## 📉 Phase 2: Exploratory Data Analysis — *Trend & Time Analysis*
 
 In this stage, I focused on analyzing layoff patterns over time:
