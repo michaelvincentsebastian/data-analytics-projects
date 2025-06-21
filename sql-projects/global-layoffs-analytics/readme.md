@@ -94,6 +94,24 @@ In this stage, I focused on analyzing layoff patterns over time:
 
 ---
 
+## 🌐 Phase 3: Company, Industry & Geographic Analysis
+
+This phase dives into where layoffs hit the hardest — by sector, location, and type of company:
+
+- **Top 10 Most Affected Industries**  
+  Discovering which business sectors were most disrupted between 2020–2023.
+
+- **Countries with the Highest Layoffs**  
+  A global breakdown of layoffs to understand regional trends and impact.
+
+- **Most Impacted Company Stages**  
+  Differentiating startup struggles vs. public company downsizing.
+
+- **Top 5 Companies by Layoffs Each Year**  
+  Annual breakdown revealing persistent vs. one-time major layoff contributors.
+
+---
+
 ## 💡 About Me
 
 I'm **Michael Vincent**, an aspiring Data Analyst with a passion for turning raw data into actionable business insights. Through hands-on projects like this, I aim to demonstrate my skills in SQL, EDA, and data storytelling.
