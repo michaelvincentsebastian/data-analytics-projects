@@ -1,119 +1,107 @@
 # 📊 Global Layoffs Data Cleaning & Analysis (2020–2023)
 
-Welcome to my hands-on SQL data cleaning and analysis project based on global tech layoffs from 2020 to 2023. This project is part of my Data Analytics Bootcamp, where I take raw, messy datasets and transform them into analysis-ready tables — paving the way for strategic insights through Exploratory Data Analysis (EDA).
+This project presents an end-to-end data analytics workflow — from cleaning raw layoff data using **SQL**, to extracting meaningful insights through **Power BI**. Based on global tech layoffs from 2020 to 2023, I explored patterns across time, industries, geography, company stages, and funding levels.
 
 ---
 
-## 🧼 Phase 1: Data Cleaning with SQL
+## 🧼 Data Cleaning: Preparing Raw Data for Analysis
 
-In this stage, I performed the following core cleaning steps using **MySQL**:
+Before diving into the analysis, I first cleaned and standardized the dataset to ensure it was accurate and analysis-ready.
 
-1. **Removing Duplicates**  
-   → Ensured each record is unique using `ROW_NUMBER()` and deleted redundant entries.
+**Key Cleaning Steps (MySQL):**
+- Removed duplicates using `ROW_NUMBER()`
+- Trimmed and standardized inconsistent labels (e.g. `"Crypto Currency"` → `"Crypto"`)
+- Replaced or removed NULL values via self-joins and filters
+- Converted `TEXT` to `DATE` for time-based queries
+- Dropped irrelevant helper columns
 
-2. **Standardizing Data**  
-   → Trimmed whitespaces, unified inconsistent naming (e.g., `"Crypto Currency"` → `"Crypto"`), and corrected country/language typos.
-
-3. **Handling NULL or Blank Values**  
-   → Used self-joins to fill in missing data where possible, and removed rows that couldn’t be salvaged.
-
-4. **Adjusting Data Types**  
-   → Converted `date` from `TEXT` to `DATE` format to enable proper temporal analysis.
-
-5. **Dropping Irrelevant Rows or Columns**  
-   → Removed incomplete records and dropped helper columns like `row_num`.
-
-✅ **Result:** A clean, structured dataset (`layoffs_staging2`) that is ready for further analysis.
-
-> 📄 File: `layoffs_cleaning.sql`
+> 📁 File: `data_cleaning.sql`  
+> ✅ Final Table: `data-after-cleaning.jpg` | `data-before-cleaning.jpg` (cleaned dataset)
 
 ---
 
-## 📈 Phase 2: Exploratory Data Analysis (EDA)
+## 📈 Exploratory Data Analysis (EDA)
 
-In this phase, I explored the cleaned data using structured SQL queries and visualized the output using **Power BI**.
+After cleaning the data, I explored it using SQL queries and visualized the output using Power BI dashboards.
 
-### 🔹 Part 1: Essential & General Summary Queries
-- Layoff time range (first & last date)
-- Maximum layoffs per event
+---
+
+### 🔹 Part 1: General Summary
+
+Core queries for understanding the dataset at a glance:
+- Layoff time range (first & last event)
+- Highest layoff numbers in a single event
 - Companies with 100% layoffs
-- Top 10 companies by total layoffs
+- Top 10 companies by layoffs count
 
-> 📄 File: `layoffs_eda_summary_queries.sql`  
-> 📊 Visual: [`dashboard-essential&general-summary-queries.jpg`](./dashboard-essential&general-summary-queries.jpg)
-
-**Tools Used:**
-- MySQL  
-- Power BI  
-- Git & GitHub  
-- VS Code  
-
-🔜 Upcoming EDA Parts:
-- **Part 2:** Trend & Time Analysis  
-- **Part 3:** In-Depth by Industry, Country, Company Stage  
-- **Part 4:** Advanced Insights (e.g., rolling average, industry-year breakdown, funding vs layoffs)
+📄 File: `eda-1.sql`  
+📊 Visual: [`1_Essential-and-General-Summary-Dashboard.jpg`](./sql-projects/global-layoffs-analytics/result/1_Essential-and-General-Summary-Dashboard.jpg)
 
 ---
 
-## 🔗 Data Source
+### 🔹 Part 2: Trend & Time Analysis
 
-This dataset was introduced as part of my Data Analytics Bootcamp curriculum and is originally sourced from the public Alex The Analyst GitHub repository, which tracks global tech layoffs from 2020 to 2023.
+Understanding layoff trends over time:
+- Total layoffs by year
+- Monthly layoffs (2020–2023)
+- Cumulative layoffs growth
+- 3-month rolling average & sum
 
-🔍 Original Dataset:  
-[AlexTheAnalyst - layoffs.csv](https://github.com/AlexTheAnalyst/MySQL-YouTube-Series/blob/main/layoffs.csv)
-
----
-
-## 📉 Phase 2: Exploratory Data Analysis — *Trend & Time Analysis*
-
-In this stage, I focused on analyzing layoff patterns over time:
-
-### 🕒 Time-Based Queries:
-
-1. **Total Layoffs by Year**  
-   → Shows macro-level trends and which year saw the highest layoffs.
-
-2. **Total Layoffs by Month-Year**  
-   → Displays monthly peaks and fluctuations for closer monitoring.
-
-3. **Cumulative Monthly Layoffs**  
-   → Tracks the progression of total layoffs over time.
-
-4. **3-Month Rolling Average & Sum**  
-   → Highlights short-term patterns while smoothing seasonal noise — helping identify current momentum (whether layoffs are rising or slowing down).
-
-### 📊 Tools Used:
-- MySQL (Data Query & Transformation)
-- Power BI (Data Visualization)
-- Git & GitHub (Version Control & Documentation)
-- VS Code (SQL Editing Environment)
-
-📸 Below is the dashboard visualization for this phase:
-
-![Trends & Time Analysis Dashboard](./trend-time-analysis.jpg)
+📄 File: `eda-2.sql`  
+📊 Visual: [`2_Trend-Time-Analysis.jpg`](./sql-projects/global-layoffs-analytics/result/2_Trend-Time-Analysis.jpg)
 
 ---
 
-## 🌐 Phase 3: Company, Industry & Geographic Analysis
+### 🔹 Part 3: Company, Industry & Geography Insights
 
-This phase dives into where layoffs hit the hardest — by sector, location, and type of company:
+Exploring layoff distributions by various dimensions:
+- Top industries with most layoffs
+- Countries with highest layoffs
+- Company stages (e.g., Series A, Public)
+- Top 5 companies by layoffs (per year)
 
-- **Top 10 Most Affected Industries**  
-  Discovering which business sectors were most disrupted between 2020–2023.
-
-- **Countries with the Highest Layoffs**  
-  A global breakdown of layoffs to understand regional trends and impact.
-
-- **Most Impacted Company Stages**  
-  Differentiating startup struggles vs. public company downsizing.
-
-- **Top 5 Companies by Layoffs Each Year**  
-  Annual breakdown revealing persistent vs. one-time major layoff contributors.
+📄 File: `eda-3.sql`  
+📊 Visual: [`3_Company-Industry-and-Geographic-Analysis.jpg`](./sql-projects/global-layoffs-analytics/result/3_Company-Industry-and-Geographic-Analysis.jpg)
 
 ---
 
-## 💡 About Me
+### 🔹 Part 4: Strategic Insights & Final Dashboard
 
-I'm **Michael Vincent**, an aspiring Data Analyst with a passion for turning raw data into actionable business insights. Through hands-on projects like this, I aim to demonstrate my skills in SQL, EDA, and data storytelling.
+Deeper strategic breakdowns to support decision making:
+- Top 3 industries per year (2020–2023)
+- Layoffs categorized by funding levels
+- Global yearly vs cumulative trend
+- Layoff hotspots by HQ location
+- Average layoff % per industry
 
-Let’s connect on [LinkedIn](https://www.linkedin.com/in/michaelvincentsebastian/)!
+📄 File: `eda-4.sql`  
+📊 Visual: [`4_Comprehensive-Layoffs-Analysis-Dashboard.jpg`](./sql-projects/global-layoffs-analytics/result/4_Comprehensive-Layoffs-Analysis-Dashboard.jpg)
+
+---
+
+## 🔗 Dataset Source
+
+The dataset is sourced from [Alex The Analyst’s GitHub repo](https://github.com/AlexTheAnalyst/MySQL-YouTube-Series/blob/main/layoffs.csv) and was used as part of my Data Analytics Bootcamp.
+
+---
+
+## 🧰 Tools Used
+
+- **MySQL** (Data cleaning & transformation)  
+- **Power BI** (Data visualization)  
+- **VS Code** (SQL editing)  
+- **Git & GitHub** (Version control & documentation)
+
+---
+
+## ✅ Project Status: Complete
+
+This project demonstrates my ability to clean messy data, write meaningful SQL queries, and build strategic dashboards that tell a clear business story.
+
+---
+
+## 🙋‍♂️ About Me
+
+I'm **Michael Vincent**, an aspiring Data Analyst passionate about transforming raw data into actionable insights. This project reflects my dedication to building strong analytical foundations through hands-on work.
+
+📎 [Connect with me on LinkedIn](https://www.linkedin.com/in/michaelvincentsebastian)
